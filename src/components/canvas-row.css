@@ -66,3 +66,21 @@ a:hover {
   text-transform: uppercase;
   font-weight: 800;
 }
+
+.canvas .list {
+  margin-top: 5px;
+}
+
+.canvas ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.canvas ul li {
+  background-color: rgb(245, 210, 11);
+  color: #000;
+  font-size: large;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
