@@ -15,7 +15,7 @@ const Canvas = () => {
         return (
           <CanvasRow
             name={rowName}
-            linkTo={`/${rowName}`}
+            linkTo={rowName}
             data={data}
             key={rowName}
           />
