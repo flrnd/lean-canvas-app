@@ -3,15 +3,14 @@ import './canvas-row.css'
 
 interface Props {
   name: string
-  linkTo: string
   data: string[]
 }
 
-const CanvasRow = ({ name, linkTo, data }: Props) => {
+const CanvasRow = ({ name, data }: Props) => {
   return (
     <Link
       className={`${name} canvas`}
-      to={{ pathname: '/edit', state: { location: linkTo } }}
+      to={{ pathname: '/edit', state: { location: name } }}
     >
       <div>
         <div className="title">{name.replace(/-/g, ' ')}</div>

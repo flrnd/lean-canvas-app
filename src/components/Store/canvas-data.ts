@@ -1,21 +1,13 @@
-// rows and canvasData must have same keynames
-const getKeyByValue = (object, value: string): string => {
-  const found: string = Object.keys(object).find(
-    (key) => object[key] === value
-  )!
-  return found
-}
-
 const rows = [
-  { problem: 'problem' },
-  { solution: 'solution' },
-  { keyMetrics: 'key-metrics' },
-  { uniqueValueProp: 'unique-value-prop' },
-  { unfairAdvantages: 'unfair-advantages' },
-  { channels: 'channels' },
-  { customerSegments: 'customer-segments' },
-  { costStructure: 'cost-structure' },
-  { revenueStreams: 'revenue-streams' },
+  'problem',
+  'solution',
+  'keyMetrics',
+  'uniqueValueProp',
+  'unfairAdvantages',
+  'channels',
+  'customerSegments',
+  'costStructure',
+  'revenueStreams',
 ]
 
 interface ICanvasData {
@@ -42,4 +34,4 @@ const canvasData: ICanvasData = {
   revenueStreams: [],
 }
 
-export { canvasData, rows, getKeyByValue }
+export { canvasData, rows }

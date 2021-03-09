@@ -8,18 +8,9 @@ const Canvas = () => {
   return (
     <div className="grid-container">
       {rows.map((row) => {
-        const keyName: string = Object.keys(row)[0]
-        const rowName: string = row[keyName]
-        const data: string[] = store[keyName]
+        const data: string[] = store[row]
 
-        return (
-          <CanvasRow
-            name={rowName}
-            linkTo={rowName}
-            data={data}
-            key={rowName}
-          />
-        )
+        return <CanvasRow name={row} data={data} key={row} />
       })}
     </div>
   )
