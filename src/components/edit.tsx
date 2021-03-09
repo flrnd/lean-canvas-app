@@ -15,6 +15,7 @@ const Edit = (props) => {
 
   return (
     <div>
+      <h1>{location}</h1>
       {data.map((item) => (
         <input type="text" value={item} />
       ))}
