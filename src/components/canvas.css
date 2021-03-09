@@ -10,52 +10,5 @@
   width: 100vw;
   height: 100vh;
   padding: 10px;
-  background-color: gainsboro;
-}
-
-.problem {
-  grid-area: problem;
-}
-
-.solution {
-  grid-area: solution;
-}
-
-.key-metrics {
-  grid-area: key-metrics;
-}
-
-.unique-value-prop {
-  grid-area: unique-value-prop;
-}
-
-.unfair-advantages {
-  grid-area: unfair-advantages;
-}
-
-.channels {
-  grid-area: channels;
-}
-
-.customer-segments {
-  grid-area: customer-segments;
-}
-
-.cost-structure {
-  grid-area: cost-structure;
-}
-
-.revenue-streams {
-  grid-area: revenue-streams;
-}
-
-.canvas {
-  background-color: white;
-  border: solid;
-  padding: 10px;
-}
-
-.canvas .title {
-  text-transform: uppercase;
-  font-weight: 800;
+  background-color: rgb(194, 194, 194);
 }
