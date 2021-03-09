@@ -1,4 +1,3 @@
-import React from 'react'
 import CanvasRow from './canvas-row'
 import './canvas.css'
 
