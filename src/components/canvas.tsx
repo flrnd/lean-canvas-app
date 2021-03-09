@@ -4,7 +4,7 @@ import { rows, CanvasContext } from './Store/'
 import './canvas.css'
 
 const Canvas = () => {
-  const store = useContext(CanvasContext)
+  const { store } = useContext(CanvasContext)
   return (
     <div className="grid-container">
       {rows.map((row) => {
