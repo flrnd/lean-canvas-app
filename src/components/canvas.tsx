@@ -1,14 +1,16 @@
+import { useContext } from 'react'
 import CanvasRow from './canvas-row'
-import { rows, canvasData } from './canvas-data'
+import { rows, CanvasContext } from './Store/'
 import './canvas.css'
 
 const Canvas = () => {
+  const store = useContext(CanvasContext)
   return (
     <div className="grid-container">
       {rows.map((row) => {
         const keyName: string = Object.keys(row)[0]
         const rowName: string = row[keyName]
-        const data: string[] = canvasData[keyName]
+        const data: string[] = store[keyName]
 
         return (
           <CanvasRow
