@@ -10,19 +10,10 @@ const rows = [
   'revenueStreams',
 ]
 
-interface ICanvasData {
-  problem: string[]
-  solution: string[]
-  keyMetrics: string[]
-  uniqueValueProp: string[]
-  unfairAdvantages: string[]
-  channels: string[]
-  customerSegments: string[]
-  costStructure: string[]
-  revenueStreams: string[]
-}
-
-const canvasData: ICanvasData = {
+// Declaring the type here helps avoid indexing error
+// see: https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html
+// and this https://github.com/microsoft/TypeScript/issues/35859#issuecomment-679986472
+const canvasData: { [location: string]: string[] } = {
   problem: [],
   solution: [],
   keyMetrics: [],
