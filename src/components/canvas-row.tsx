@@ -15,8 +15,8 @@ const CanvasRow = ({ name, data }: Props) => {
         <div className="title">{title}</div>
         <div className="list">
           <ul>
-            {data.map((listItem) => (
-              <li key={listItem}>{listItem}</li>
+            {data.map((listItem, index) => (
+              <li key={index}>{listItem}</li>
             ))}
           </ul>
         </div>
