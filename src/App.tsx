@@ -9,7 +9,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact component={Canvas} />
-          <Route path="/edit" exact component={Edit} />
+          <Route path="/edit/:id" exact component={Edit} />
         </Switch>
       </Router>
     </div>
