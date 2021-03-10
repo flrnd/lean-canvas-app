@@ -1,10 +1,14 @@
 import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from './Store'
-import CanvasFieldsForm from './canvasFieldsForm'
+import EditForm from './editForm'
 
 interface IEditRouterParams {
   id: string
+}
+
+const styleClasses = {
+  heading: 'text-3xl font-bold uppercase',
 }
 
 const Edit = () => {
@@ -26,9 +30,9 @@ const Edit = () => {
 
   return (
     <div className="edit">
-      <h1>{title}</h1>
+      <h1 className={styleClasses.heading}>{title}</h1>
       <main className="container">
-        <CanvasFieldsForm addValue={(value: string) => addValue(value)} />
+        <EditForm addValue={(value: string) => addValue(value)} />
 
         <ul>
           {values.map((item, index) => (
