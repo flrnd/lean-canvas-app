@@ -33,18 +33,20 @@ const Edit = () => {
     <div className="container mx-auto">
       <h1 className={styleClasses.heading}>{title}</h1>
       <main className="container">
-        <EditForm addValue={(value: string) => addValue(value)} />
+        <div className="flex items-center py-2">
+          <EditForm addValue={(value: string) => addValue(value)} />
+          <button className={componentStyles.doneButton}>
+            <Link onClick={() => handleData()} to="/">
+              Done
+            </Link>
+          </button>
+        </div>
 
         <ul>
           {values.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
-        <button className={componentStyles.button}>
-          <Link onClick={() => handleData()} to="/">
-            Done
-          </Link>
-        </button>
       </main>
     </div>
   )

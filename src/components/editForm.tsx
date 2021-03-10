@@ -26,7 +26,7 @@ const EditForm = ({ addValue }: Props) => {
           value={value}
         />
         <button className={componentStyles.button} type="submit">
-          submit
+          Add
         </button>
       </div>
     </form>
