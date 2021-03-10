@@ -1,14 +1,8 @@
 import { useState } from 'react'
+import { componentStyles } from '../styles/'
 
 interface Props {
   addValue: Function
-}
-
-const styles = {
-  input:
-    'appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none',
-  formContent: 'flex items-center border-b border-teal-500 py-2',
-  button: '',
 }
 
 const EditForm = ({ addValue }: Props) => {
@@ -16,24 +10,25 @@ const EditForm = ({ addValue }: Props) => {
 
   return (
     <form
-      className="w-full max-w-sm"
+      className={componentStyles.form}
       onSubmit={(event) => {
         event.preventDefault()
         addValue(value)
         setValue('')
       }}
     >
-      <div className={styles.formContent}></div>
-      <input
-        className={styles.input}
-        onChange={(event) => {
-          setValue(event.target.value)
-        }}
-        value={value}
-      />
-      <button className={styles.button} type="submit">
-        submit
-      </button>
+      <div className={componentStyles.contentForm}>
+        <input
+          className={componentStyles.input}
+          onChange={(event) => {
+            setValue(event.target.value)
+          }}
+          value={value}
+        />
+        <button className={componentStyles.button} type="submit">
+          submit
+        </button>
+      </div>
     </form>
   )
 }

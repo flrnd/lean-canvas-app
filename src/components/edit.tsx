@@ -2,6 +2,7 @@ import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from './Store'
 import EditForm from './editForm'
+import { componentStyles } from '../styles'
 
 interface IEditRouterParams {
   id: string
@@ -29,7 +30,7 @@ const Edit = () => {
   }
 
   return (
-    <div className="edit">
+    <div className="container mx-auto">
       <h1 className={styleClasses.heading}>{title}</h1>
       <main className="container">
         <EditForm addValue={(value: string) => addValue(value)} />
@@ -39,10 +40,11 @@ const Edit = () => {
             <li key={index}>{item}</li>
           ))}
         </ul>
-
-        <Link className="link" onClick={() => handleData()} to="/">
-          Done
-        </Link>
+        <button className={componentStyles.button}>
+          <Link onClick={() => handleData()} to="/">
+            Done
+          </Link>
+        </button>
       </main>
     </div>
   )
