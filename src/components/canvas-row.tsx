@@ -8,10 +8,7 @@ interface Props {
 
 const CanvasRow = ({ name, data }: Props) => {
   return (
-    <Link
-      className={`${name} canvas`}
-      to={{ pathname: '/edit', state: { location: name } }}
-    >
+    <Link className={`${name} canvas`} to={`/edit/${name}`}>
       <div>
         <div className="title">{name.replace(/-/g, ' ')}</div>
         <div className="list">
