@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from './Store'
-import './edit.css'
 import CanvasFieldsForm from './canvasFieldsForm'
 
 interface IEditRouterParams {
