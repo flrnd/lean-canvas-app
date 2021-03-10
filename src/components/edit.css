@@ -2,7 +2,9 @@
   text-transform: uppercase;
   margin-bottom: 15px;
 }
-.edit a {
+
+.link {
+  margin-top: 20px;
   padding: 5px;
   border-radius: 5px;
   background-color: blue;
