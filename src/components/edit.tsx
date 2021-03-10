@@ -22,7 +22,7 @@ const Edit = () => {
   }
 
   const addValue = (value: string) => {
-    setValues([...values, value])
+    if (value.length > 0) setValues([...values, value])
   }
 
   return (
