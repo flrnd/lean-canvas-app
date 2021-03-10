@@ -1,21 +1,25 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { CanvasContext } from './Store'
 
-const Edit = (props) => {
+interface IEditRouterParams {
+  id: string
+}
+
+const Edit = () => {
+  const { id } = useParams<IEditRouterParams>()
   const { store, setStore } = useContext(CanvasContext)
-  const { location } = props.location.state
-  const data = store[location]
+  const data = store[id]
 
   const handleData = (values: string[]) => {
     const newStore = store
-    newStore[location] = values
+    newStore['problem'] = values
     setStore(newStore)
   }
 
   return (
     <div>
-      <h1>{location}</h1>
+      <h1>{id}</h1>
       {data.map((item) => (
         <input type="text" value={item} />
       ))}
