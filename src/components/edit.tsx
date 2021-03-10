@@ -1,7 +1,8 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from './Store'
 import './edit.css'
+import CanvasFieldsForm from './canvasFieldsForm'
 
 interface IEditRouterParams {
   id: string
@@ -12,21 +13,34 @@ const Edit = () => {
   const { store, setStore } = useContext(CanvasContext)
   const data = store[id]
   const title = parseRowName(id)
+  const [values, setValues] = useState(data)
 
-  const handleData = (values: string[]) => {
+  const handleData = () => {
     const newStore = store
-    newStore['problem'] = values
+    newStore[id] = values
     setStore(newStore)
+  }
+
+  const addValue = (value: string) => {
+    setValues([...values, value])
+    handleData()
   }
 
   return (
     <div className="edit">
       <h1>{title}</h1>
       <main className="container">
-        {data.map((item) => (
-          <input type="text" value={item} />
-        ))}
-        <Link to="/">Done</Link>
+        <CanvasFieldsForm addValue={(value: string) => addValue(value)} />
+
+        <ul>
+          {data.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+
+        <Link className="link" to="/">
+          Done
+        </Link>
       </main>
     </div>
   )
