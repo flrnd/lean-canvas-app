@@ -1,0 +1,13 @@
+.edit h1 {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.edit a {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+}
+.edit .container {
+  margin: auto;
+}
