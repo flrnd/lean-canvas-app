@@ -7,10 +7,10 @@ const Canvas = () => {
   const { store } = useContext(CanvasContext)
   return (
     <div className="grid-container">
-      {rows.map((row) => {
+      {rows.map((row, index) => {
         const data: string[] = store[row]
 
-        return <CanvasRow name={row} data={data} key={row} />
+        return <CanvasRow name={row} data={data} key={index} />
       })}
     </div>
   )
