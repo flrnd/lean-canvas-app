@@ -5,14 +5,12 @@ import Edit from './components/edit'
 
 const App = () => {
   return (
-    <div>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={Canvas} />
-          <Route path="/edit/:id" exact component={Edit} />
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Canvas} />
+        <Route path="/edit/:id" exact component={Edit} />
+      </Switch>
+    </Router>
   )
 }
 export default App
