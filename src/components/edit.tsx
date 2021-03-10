@@ -23,7 +23,6 @@ const Edit = () => {
 
   const addValue = (value: string) => {
     setValues([...values, value])
-    handleData()
   }
 
   return (
@@ -33,12 +32,12 @@ const Edit = () => {
         <CanvasFieldsForm addValue={(value: string) => addValue(value)} />
 
         <ul>
-          {data.map((item, index) => (
+          {values.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
 
-        <Link className="link" to="/">
+        <Link className="link" onClick={() => handleData()} to="/">
           Done
         </Link>
       </main>
