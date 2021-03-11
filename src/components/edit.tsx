@@ -36,7 +36,7 @@ const Edit = () => {
       <main className="container">
         <div className="flex items-center py-2">
           <EditForm addValue={(value: string) => addValue(value)} />
-          <button className="flex-shrink-0 text-sm py-1 px-2 ml-2 font-bold uppercase border-2 hover:border-black rounded">
+          <button className="flex-shrink-0 text-sm py-1 px-2 ml-2 mt-10 font-bold uppercase border-2 hover:border-black rounded">
             <Link onClick={() => handleData()} to="/">
               Done
             </Link>

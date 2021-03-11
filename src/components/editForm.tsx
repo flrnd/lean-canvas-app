@@ -9,7 +9,7 @@ const EditForm = ({ addValue }: Props) => {
 
   return (
     <form
-      className="w-full max-w-sm"
+      className="w-full max-w-sm mt-10"
       onSubmit={(event) => {
         event.preventDefault()
         addValue(value)
