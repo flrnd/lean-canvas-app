@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import CanvasRow from './canvas-row'
-import { rows, CanvasContext } from './Store/'
+import { rows, CanvasContext } from '../../Store'
 import './canvas.css'
 
 const Canvas = () => {

@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { CanvasContext, parseRowName } from './Store'
+import { CanvasContext, parseRowName } from '../Store'
 import EditForm from './editForm'
-import { componentStyles } from '../styles'
 import EditCard from './edit-card'
 
 interface IEditRouterParams {
@@ -37,7 +36,7 @@ const Edit = () => {
       <main className="container">
         <div className="flex items-center py-2">
           <EditForm addValue={(value: string) => addValue(value)} />
-          <button className={componentStyles.doneButton}>
+          <button className="flex-shrink-0 text-sm py-1 px-2 ml-2 font-bold uppercase border-2 hover:border-black rounded">
             <Link onClick={() => handleData()} to="/">
               Done
             </Link>

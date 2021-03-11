@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './canvas-row.css'
-import { parseRowName } from './Store'
+import { parseRowName } from '../../Store'
 
 interface Props {
   name: string

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Canvas from './components/canvas'
+import { Canvas } from './components/canvas'
 import Edit from './components/edit'
 
 const App = () => {
