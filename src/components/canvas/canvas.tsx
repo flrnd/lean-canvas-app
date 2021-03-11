@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import CanvasRow from './canvas-row'
 import { rows, CanvasContext } from '../../Store'
-import CogIcon from '../icons/cog'
 import './canvas.css'
 
 const Canvas = () => {
