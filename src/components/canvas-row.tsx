@@ -10,16 +10,22 @@ interface Props {
 const CanvasRow = ({ name, data }: Props) => {
   const title = parseRowName(name)
   return (
-    <Link className={`${name} canvas`} to={`/edit/${name}`}>
-      <div>
-        <div className="title">{title}</div>
-        <div className="list">
-          <ul>
-            {data.map((listItem, index) => (
-              <li key={index}>{listItem}</li>
-            ))}
-          </ul>
-        </div>
+    <Link
+      className={`${name} bg-white border-4 border-black hover:border-blue-700 focus:border-blue-700 visited:text-black p-3`}
+      to={`/edit/${name}`}
+    >
+      <div className="uppercase font-bold">{title}</div>
+      <div className="mt-2">
+        <ul className="flex flex-wrap">
+          {data.map((listItem, index) => (
+            <li
+              className="bg-yellow-200 text-black text-xl p-3 mt-2 mb-2 rounded shadow break-all"
+              key={index}
+            >
+              {listItem}
+            </li>
+          ))}
+        </ul>
       </div>
     </Link>
   )
