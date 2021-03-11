@@ -32,7 +32,7 @@ const Edit = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-3xl font-bold uppercase">{title}</h1>
+      <h1 className="text-3xl font-bold uppercase mt-10">{title}</h1>
       <main className="container">
         <div className="flex items-center py-2">
           <EditForm addValue={(value: string) => addValue(value)} />
