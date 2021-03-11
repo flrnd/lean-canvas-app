@@ -19,7 +19,7 @@ const CanvasRow = ({ name, data }: Props) => {
         <ul className="flex flex-wrap">
           {data.map((listItem, index) => (
             <li
-              className="bg-yellow-200 text-black text-xl p-3 mt-2 mb-2 rounded shadow break-all"
+              className="bg-yellow-200 text-black text-xl p-3 m-1 rounded shadow break-all"
               key={index}
             >
               {listItem}
