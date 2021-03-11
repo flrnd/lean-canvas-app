@@ -19,11 +19,12 @@ const Canvas = () => {
 
         return <CanvasRow name={row} data={data} key={index} />
       })}
-      <div className="footer flex items-center">
-        <div className="">
-          {' '}
+      <div className="footer flex justify-center">
+        <div className="text-sm">
           Designed and developed by{' '}
-          <a href="https://florianrand.com">Florian Rand</a>
+          <a className="underline font-semibold" href="https://florianrand.com">
+            Florian Rand
+          </a>
         </div>
       </div>
     </div>
