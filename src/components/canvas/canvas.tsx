@@ -6,12 +6,19 @@ import './canvas.css'
 
 const Canvas = () => {
   const { store } = useContext(CanvasContext)
+
   return (
     <div className="grid-container">
-      <div className="head flex justify-between items-center">
-        <div className="font-bold text-2xl">Lean Canvas</div>
-        <div>
-          <CogIcon />
+      <div className="head z-0">
+        <div className="Nav w-full flex justify-between items-center z-1">
+          <div className="font-bold text-2xl">Lean Canvas</div>
+          <div>
+            <button onClick={() => {}}>
+              <span className="flex items-center">
+                Setup <CogIcon />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       {rows.map((row, index) => {
