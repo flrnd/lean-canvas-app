@@ -20,6 +20,7 @@ const EditForm = ({ addValue }: Props) => {
       <div className={componentStyles.contentForm}>
         <input
           className={componentStyles.input}
+          placeholder="start typing some ideas"
           onChange={(event) => {
             setValue(event.target.value)
           }}

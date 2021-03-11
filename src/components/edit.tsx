@@ -3,13 +3,10 @@ import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from './Store'
 import EditForm from './editForm'
 import { componentStyles } from '../styles'
+import EditCard from './edit-card'
 
 interface IEditRouterParams {
   id: string
-}
-
-const styleClasses = {
-  heading: 'text-3xl font-bold uppercase',
 }
 
 const Edit = () => {
@@ -29,9 +26,14 @@ const Edit = () => {
     if (value.length > 0) setValues([...values, value])
   }
 
+  const deleteValue = (value: string) => {
+    const newValues = values.filter((v) => v !== value)
+    setValues(newValues)
+  }
+
   return (
     <div className="container mx-auto">
-      <h1 className={styleClasses.heading}>{title}</h1>
+      <h1 className="text-3xl font-bold uppercase">{title}</h1>
       <main className="container">
         <div className="flex items-center py-2">
           <EditForm addValue={(value: string) => addValue(value)} />
@@ -44,7 +46,11 @@ const Edit = () => {
 
         <ul>
           {values.map((item, index) => (
-            <li key={index}>{item}</li>
+            <EditCard
+              item={item}
+              key={index}
+              deleteValue={(value: string) => deleteValue(value)}
+            />
           ))}
         </ul>
       </main>
