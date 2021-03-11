@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './canvas-row.css'
 import { parseRowName } from '../../Store'
+import CanvasTip from './canvas-tip'
 
 interface Props {
   name: string
@@ -15,7 +16,8 @@ const CanvasRow = ({ name, data }: Props) => {
       to={`/edit/${name}`}
     >
       <div className="uppercase font-bold">{title}</div>
-      <div className="mt-2">
+      <div className="mt-0.5">
+        <CanvasTip canvas={name} />
         <ul className="flex flex-wrap">
           {data.map((listItem, index) => (
             <li
