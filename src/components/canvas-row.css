@@ -4,22 +4,6 @@ a {
   color: none;
 }
 
-a:link {
-  color: #000;
-}
-
-a:visited {
-  color: #000;
-}
-
-a:focus {
-  border-color: blue;
-}
-
-a:hover {
-  border-color: blue;
-}
-
 .problem {
   grid-area: problem;
 }
@@ -54,33 +38,4 @@ a:hover {
 
 .revenueStreams {
   grid-area: revenue-streams;
-}
-
-.canvas {
-  background-color: white;
-  border: solid;
-  padding: 10px;
-}
-
-.canvas .title {
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-.canvas .list {
-  margin-top: 5px;
-}
-
-.canvas ul {
-  display: flex;
-  list-style-type: none;
-}
-
-.canvas ul li {
-  background-color: rgb(245, 210, 11);
-  color: #000;
-  font-size: large;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
 }
