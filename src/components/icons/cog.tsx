@@ -1,4 +1,4 @@
-const Cog = () => (
+const CogIcon = () => (
   <svg
     className="w-8 h-8"
     fill="none"
@@ -21,4 +21,4 @@ const Cog = () => (
   </svg>
 )
 
-export default Cog
+export default CogIcon

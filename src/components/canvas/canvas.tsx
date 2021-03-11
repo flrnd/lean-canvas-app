@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import CanvasRow from './canvas-row'
 import { rows, CanvasContext } from '../../Store'
+import CogIcon from '../icons/cog'
 import './canvas.css'
-import Cog from '../icons/cog'
 
 const Canvas = () => {
   const { store } = useContext(CanvasContext)
@@ -11,7 +11,7 @@ const Canvas = () => {
       <div className="head flex justify-between items-center">
         <div className="font-bold text-2xl">Lean Canvas</div>
         <div>
-          <Cog />
+          <CogIcon />
         </div>
       </div>
       {rows.map((row, index) => {
