@@ -26,8 +26,8 @@ const Edit = () => {
     if (value.length > 0) setValues([...values, value])
   }
 
-  const deleteValue = (value: string) => {
-    const newValues = values.filter((v) => v !== value)
+  const deleteValue = (valueIndex: number) => {
+    const newValues = values.filter((_, index) => index !== valueIndex)
     setValues(newValues)
   }
 
@@ -49,7 +49,7 @@ const Edit = () => {
             <EditCard
               item={item}
               key={index}
-              deleteValue={(value: string) => deleteValue(value)}
+              deleteValue={() => deleteValue(index)}
             />
           ))}
         </ul>
