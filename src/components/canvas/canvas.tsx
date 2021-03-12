@@ -20,7 +20,7 @@ const Canvas = () => {
       })}
       <div className="footer flex justify-center">
         <div className="text-sm">
-          Designed and developed by{' '}
+          Built by{' '}
           <a className="underline font-semibold" href="https://florianrand.com">
             Florian Rand
           </a>
