@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 
 const dbName = 'localCanvasDB'
 
-const localCanvasDB: { [store: string]: any } = {
+const localCanvasDB: { [store: string]: LocalForage } = {
   problem: localforage.createInstance({
     name: dbName,
     storeName: 'problemStore',
@@ -54,9 +54,9 @@ const localCanvasDB: { [store: string]: any } = {
 const saveItem = (store: string, item: string) => {
   try {
     const key = uuid()
-    localCanvasDB.stores[store].setItem(key, item)
+    localCanvasDB[store].setItem(key, item)
   } catch (error) {
-    console.error(`[E] localforage: ${error}`)
+    console.error(`saveItem localforage error: ${error}`)
   }
 }
 
