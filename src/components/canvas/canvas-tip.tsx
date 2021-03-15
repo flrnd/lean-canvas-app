@@ -26,8 +26,10 @@ const CanvasTip = ({ canvas }: Props) => {
 
   return (
     <ul className="">
-      {tips[canvas].map((tip) => (
-        <li className="text-gray-500 text-sm">{tip}</li>
+      {tips[canvas].map((tip, index) => (
+        <li key={index} className="text-gray-500 text-sm">
+          {tip}
+        </li>
       ))}
     </ul>
   )
