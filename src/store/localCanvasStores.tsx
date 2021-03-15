@@ -51,6 +51,17 @@ const localCanvasDB: { [store: string]: LocalForage } = {
   }),
 }
 
+const getItem = async (store: string, key: string) => {
+  try {
+    const stored = await localCanvasDB[store].getItem<string>(key)
+    if (stored === null) throw new Error('store is empty')
+
+    return stored
+  } catch (error) {
+    console.error(`getItem localforage error: ${error}`)
+  }
+}
+
 const saveItem = (store: string, item: string) => {
   try {
     const key = uuid()
@@ -60,4 +71,4 @@ const saveItem = (store: string, item: string) => {
   }
 }
 
-export { localCanvasDB, saveItem }
+export { localCanvasDB, saveItem, getItem }
