@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { CanvasContext, parseRowName } from '../Store'
+import { CanvasContext, parseRowName } from '../store'
 import EditForm from './editForm'
 import EditCard from './edit-card'
 
