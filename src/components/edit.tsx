@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from '../store'
 import EditForm from './editForm'
 import EditCard from './edit-card'
+import { saveItem } from '../store/localCanvasStores'
 
 interface IEditRouterParams {
   id: string
@@ -19,6 +20,7 @@ const Edit = () => {
     const newStore = store
     newStore[id] = values
     setStore(newStore)
+    values.map((value) => saveItem(id, value))
   }
 
   const addValue = (value: string) => {
