@@ -1,11 +1,20 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import CanvasRow from './canvas-row'
 import { rows, CanvasContext } from '../../store'
 import './canvas.css'
+import { getCanvasData } from '../../store/canvas-data'
 
 const Canvas = () => {
   const { store } = useContext(CanvasContext)
+  const [data, setData] = useState(store)
 
+  useEffect(() => {
+    async function fetchData() {
+      const storedData = await getCanvasData()
+      setData(storedData)
+    }
+    fetchData()
+  }, [data])
   return (
     <div className="grid-container">
       <div className="head z-0">
