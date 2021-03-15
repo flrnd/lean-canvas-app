@@ -1,3 +1,5 @@
+import { getItem, localCanvasDB } from './localCanvasStores'
+
 const rows = [
   'problem',
   'solution',
@@ -62,4 +64,16 @@ const canvasData: { [location: string]: string[] } = {
   revenueStreams: [],
 }
 
-export { canvasData, rows, parseRowName }
+const getCanvasData = async () => {
+  const newCanvas = canvasData
+
+  for (let row of rows) {
+    const keys = await localCanvasDB[row].keys()
+    for (let key of keys) {
+      const item = await getItem(row, key)
+      if (item) newCanvas[row].push(item)
+    }
+  }
+  return newCanvas
+}
+export { getCanvasData, canvasData, rows, parseRowName }
