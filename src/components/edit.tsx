@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { CanvasContext, parseRowName } from '../store'
 import EditForm from './editForm'
 import EditCard from './edit-card'
-import { saveItem } from '../store/localCanvasStores'
+import { saveItem, removeItem } from '../store/localCanvasStores'
 
 interface IEditRouterParams {
   id: string
@@ -20,16 +20,19 @@ const Edit = () => {
     const newStore = store
     newStore[id] = values
     setStore(newStore)
-    values.map((value) => saveItem(id, value))
   }
 
   const addValue = (value: string) => {
-    if (value.length > 0) setValues([...values, value])
+    if (value.length > 0) {
+      setValues([...values, value])
+      saveItem(id, value)
+    }
   }
 
-  const deleteValue = (valueIndex: number) => {
+  const deleteValue = (valueIndex: number, value: string) => {
     const newValues = values.filter((_, index) => index !== valueIndex)
     setValues(newValues)
+    removeItem(id, value)
   }
 
   return (
@@ -50,7 +53,7 @@ const Edit = () => {
             <EditCard
               item={item}
               key={index}
-              deleteValue={() => deleteValue(index)}
+              deleteValue={() => deleteValue(index, item)}
             />
           ))}
         </ul>
