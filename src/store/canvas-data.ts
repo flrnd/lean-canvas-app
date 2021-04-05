@@ -66,7 +66,7 @@ const canvasData: { [location: string]: string[] } = {
 }
 
 const fetchCanvasData = async () => {
-  const newCanvas = canvasData
+  const newCanvas = { ...canvasData }
   for (let row of rows) {
     const keys = await localCanvasDB[row].keys()
     const data = []
