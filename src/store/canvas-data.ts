@@ -52,6 +52,7 @@ const parseRowName = (rowName: string): string => {
 // Declaring the type here helps avoid indexing error
 // see: https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html
 // and this https://github.com/microsoft/TypeScript/issues/35859#issuecomment-679986472
+
 const canvasData: { [location: string]: string[] } = {
   problem: [],
   solution: [],
@@ -64,16 +65,19 @@ const canvasData: { [location: string]: string[] } = {
   revenueStreams: [],
 }
 
-const getCanvasData = async () => {
+const fetchCanvasData = async () => {
   const newCanvas = canvasData
-
   for (let row of rows) {
     const keys = await localCanvasDB[row].keys()
+    const data = []
     for (let key of keys) {
       const item = await getItem(row, key)
-      if (item) newCanvas[row].push(item)
+      if (item) data[data.length] = item
     }
+    newCanvas[row] = data
   }
+
   return newCanvas
 }
-export { getCanvasData, canvasData, rows, parseRowName }
+
+export { fetchCanvasData, canvasData, rows, parseRowName }
