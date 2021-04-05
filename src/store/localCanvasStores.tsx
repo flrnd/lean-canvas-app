@@ -71,4 +71,16 @@ const saveItem = (store: string, item: string) => {
   }
 }
 
-export { localCanvasDB, saveItem, getItem }
+const removeItem = async (store: string, value: string) => {
+  try {
+    const keys = await localCanvasDB[store].keys()
+    for (let key of keys) {
+      const item = await getItem(store, key)
+      if (item === value) localCanvasDB[store].removeItem(key)
+    }
+  } catch (error) {
+    console.error(`removeItem localForage error: ${error}`)
+  }
+}
+
+export { localCanvasDB, saveItem, getItem, removeItem }
