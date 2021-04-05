@@ -1,20 +1,21 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import CanvasRow from './canvas-row'
 import { rows, CanvasContext } from '../../store'
 import './canvas.css'
-import { getCanvasData } from '../../store/canvas-data'
+import { fetchCanvasData } from '../../store/canvas-data'
 
 const Canvas = () => {
-  const { store } = useContext(CanvasContext)
-  const [data, setData] = useState(store)
+  const { store, setStore } = useContext(CanvasContext)
 
   useEffect(() => {
-    async function fetchData() {
-      const storedData = await getCanvasData()
-      setData(storedData)
+    const fetchData = async () => {
+      const data = await fetchCanvasData()
+      console.log(data)
+      setStore(data)
     }
     fetchData()
-  }, [data])
+  }, [setStore])
+
   return (
     <div className="grid-container">
       <div className="head z-0">
@@ -23,8 +24,8 @@ const Canvas = () => {
         </div>
       </div>
       {rows.map((row, index) => {
+        console.log(store[row])
         const data: string[] = store[row]
-
         return <CanvasRow name={row} data={data} key={index} />
       })}
       <div className="footer flex justify-center">
