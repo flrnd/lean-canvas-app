@@ -1,19 +1,27 @@
-import { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CanvasRow from './canvas-row'
 import { rows, CanvasContext } from '../../store'
 import './canvas.css'
-import { fetchCanvasData } from '../../store/canvas-data'
+import { canvasData, fetchCanvasData } from '../../store/canvas-data'
+
+const fetchData = (setStore: any) => async () => {
+  try {
+    const data = await fetchCanvasData()
+    console.log({ ...data })
+
+    setStore(data)
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const Canvas = () => {
-  const { store, setStore } = useContext(CanvasContext)
+  //const { store, setStore } = useContext(CanvasContext)
+  const [store, setStore] = useState(canvasData)
 
+  console.log({ ...store })
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchCanvasData()
-      console.log(data)
-      setStore(data)
-    }
-    fetchData()
+    fetchData(setStore)()
   }, [setStore])
 
   return (
@@ -24,7 +32,6 @@ const Canvas = () => {
         </div>
       </div>
       {rows.map((row, index) => {
-        console.log(store[row])
         const data: string[] = store[row]
         return <CanvasRow name={row} data={data} key={index} />
       })}
