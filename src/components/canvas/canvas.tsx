@@ -10,7 +10,6 @@ const Canvas = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchCanvasData()
-      console.log(data)
       setStore(data)
     }
     fetchData()
@@ -24,7 +23,6 @@ const Canvas = () => {
         </div>
       </div>
       {rows.map((row, index) => {
-        console.log(store[row])
         const data: string[] = store[row]
         return <CanvasRow name={row} data={data} key={index} />
       })}
