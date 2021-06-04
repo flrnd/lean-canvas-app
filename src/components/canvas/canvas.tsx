@@ -7,8 +7,6 @@ import { canvasData, fetchCanvasData } from '../../store/canvas-data'
 const fetchData = (setStore: any) => async () => {
   try {
     const data = await fetchCanvasData()
-    console.log({ ...data })
-
     setStore(data)
   } catch (error) {
     console.error(error)
