@@ -1,18 +1,35 @@
-import { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CanvasRow from './canvas-row'
 import { rows, CanvasContext } from '../../store'
 import './canvas.css'
-import { fetchCanvasData } from '../../store/canvas-data'
+import { canvasData, fetchCanvasData } from '../../store/canvas-data'
+
+const fetchData = (setStore: any) => async () => {
+  try {
+    const data = await fetchCanvasData()
+    console.log({ ...data })
+
+    setStore(data)
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const Canvas = () => {
-  const { store, setStore } = useContext(CanvasContext)
+  //const { store, setStore } = useContext(CanvasContext)
+  const [store, setStore] = useState(canvasData)
 
+  console.log({ ...store })
   useEffect(() => {
+<<<<<<< HEAD
     const fetchData = async () => {
       const data = await fetchCanvasData()
       setStore(data)
     }
     fetchData()
+=======
+    fetchData(setStore)()
+>>>>>>> 9f18d04ab816a31ce527a1f478d0536bf5694b28
   }, [setStore])
 
   return (
