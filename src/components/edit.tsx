@@ -17,7 +17,7 @@ const Edit = () => {
   const [values, setValues] = useState(data)
 
   const handleData = () => {
-    const newStore = store
+    const newStore = { ...store }
     newStore[id] = values
     setStore(newStore)
   }
