@@ -5,6 +5,7 @@ import './canvas.css'
 
 const Canvas = () => {
   const { store } = useContext(CanvasContext)
+  const appVersion = '1.0.1'
 
   return (
     <div className="grid-container">
@@ -22,7 +23,7 @@ const Canvas = () => {
         <div className="text-sm">
           Built by{' '}
           <a className="underline font-semibold" href="https://florianrand.com">
-            Florian Rand
+            Florian Rand | appVersion: {appVersion}
           </a>
         </div>
       </div>
