@@ -4,30 +4,30 @@ import { CanvasContext, parseRowName } from '../Store'
 import EditForm from './editForm'
 import EditCard from './edit-card'
 
-interface IEditRouterParams {
-  id: string
-}
-
 const Edit = () => {
-  const { id } = useParams<IEditRouterParams>()
+  const { id } = useParams()
   const { store, setStore } = useContext(CanvasContext)
-  const data = store[id]
-  const title = parseRowName(id)
+  const data = id && store[id]
+  const title = id && parseRowName(id)
   const [values, setValues] = useState(data)
 
   const handleData = () => {
-    const newStore = store
-    newStore[id] = values
-    setStore(newStore)
+    if (id && values) {
+      const newStore = store
+      newStore[id] = values
+      setStore(newStore)
+    }
   }
 
   const addValue = (value: string) => {
-    if (value.length > 0) setValues([...values, value])
+    if (value.length > 0 && values) setValues([...values, value])
   }
 
   const deleteValue = (valueIndex: number) => {
-    const newValues = values.filter((_, index) => index !== valueIndex)
-    setValues(newValues)
+    if (values) {
+      const newValues = values.filter((_, index) => index !== valueIndex)
+      setValues(newValues)
+    }
   }
 
   return (
@@ -44,13 +44,14 @@ const Edit = () => {
         </div>
 
         <ul>
-          {values.map((item, index) => (
-            <EditCard
-              item={item}
-              key={index}
-              deleteValue={() => deleteValue(index)}
-            />
-          ))}
+          {values &&
+            values.map((item, index) => (
+              <EditCard
+                item={item}
+                key={index}
+                deleteValue={() => deleteValue(index)}
+              />
+            ))}
         </ul>
       </main>
     </div>
