@@ -23,8 +23,9 @@ const Canvas = () => {
         <div className="text-sm">
           Built by{' '}
           <a className="underline font-semibold" href="https://florianrand.com">
-            Florian Rand | appVersion: {appVersion}
+            Florian Rand
           </a>
+          &nbsp;appVersion: {appVersion}
         </div>
       </div>
     </div>
