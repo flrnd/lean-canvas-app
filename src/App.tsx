@@ -1,15 +1,15 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Canvas } from './components/canvas'
 import Edit from './components/edit'
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Canvas} />
-        <Route path="/edit/:id" exact component={Edit} />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Canvas />} />
+        <Route path="/edit/:id" element={<Edit />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 export default App
