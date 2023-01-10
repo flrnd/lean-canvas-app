@@ -1,6 +1,6 @@
 # Lean Canvas
 
-Small pet project to show the use of React Context API.
+Lean canvas built with React.
 
 Demo site: https://leancanvas.vercel.app/
 
